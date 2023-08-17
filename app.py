@@ -67,8 +67,6 @@ def new():
 
         # User questions
         query=st.text_input("Ask questions about your uploaded pdf file")
-        with open('style1.css') as c:
-            st.markdown(f'<style>{c.read()}</style>', unsafe_allow_html=True)
         if query:
             docs=vectorstore.similarity_search(query=query)
             llm=OpenAI(temperature=0)
