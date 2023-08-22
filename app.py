@@ -46,13 +46,14 @@ def new():
         text=''
         for each_page in pdf_reader.pages:
             text=text+ each_page.extract_text()
-        
+        # st.write(text)
         text_splitter=RecursiveCharacterTextSplitter(
             chunk_size=1000,
             chunk_overlap=200,
             length_function=len
         )
         chunks=text_splitter.split_text(text=text)
+        # st.write(chunks)
         # embeddings
         
         file_name=pdf_file.name[:-4]
